@@ -12,6 +12,7 @@ var radius
 var root = null
 var blue_particles = null
 var red_particles = null
+var power_particles = null
 
 func _ready():
 	radius = get_node("ball_collider").get_shape().get_radius()
@@ -19,6 +20,8 @@ func _ready():
 	root = get_tree().get_root().get_node("game")
 	blue_particles = get_node("blue_particles")
 	red_particles = get_node("red_particles")
+	power_particles = get_node("power_particles")
+	power_particles.set_emitting(false)
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
@@ -59,6 +62,11 @@ func _on_ball_area_enter( area ):
 		elif (speed < MAX_SPEED):
 			speed += 50
 		num_bounces += 1
+		power_particles.set_emitting(true)
+		if (num_bounces < 11):
+			power_particles.set_amount(num_bounces)
+			if (num_bounces % 2 == 0):
+				power_particles.set_param(power_particles.PARAM_FINAL_SIZE, power_particles.get_param(power_particles.PARAM_FINAL_SIZE) + 0.1)
 		blue_particles.set_pos(direction * -radius)
 		blue_particles.set_param(blue_particles.PARAM_DIRECTION, rad2deg(direction.angle()))
 		blue_particles.set_emitting(true)
@@ -88,6 +96,11 @@ func _on_ball_area_enter( area ):
 		elif (speed < MAX_SPEED):
 			speed += 20
 		num_bounces += 1
+		power_particles.set_emitting(true)
+		if (num_bounces < 11):
+			power_particles.set_amount(num_bounces)
+			if (num_bounces % 2 == 0):
+				power_particles.set_param(power_particles.PARAM_FINAL_SIZE, power_particles.get_param(power_particles.PARAM_FINAL_SIZE) + 0.1)
 		red_particles.set_pos(direction * -radius)
 		red_particles.set_param(red_particles.PARAM_DIRECTION, rad2deg(direction.angle()))
 		red_particles.set_emitting(true)
@@ -95,9 +108,9 @@ func _on_ball_area_enter( area ):
 func _on_ball_exit_screen():
 	speed = 0
 	if (direction.x < 0):
-		root.change_score(-50 - num_bounces * 10)
+		root.change_score(-50 - num_bounces * 20)
 	else:
-		root.change_score(50 + num_bounces * 10)
+		root.change_score(50 + num_bounces * 20)
 	get_node("death_timer").start()
 	
 	
