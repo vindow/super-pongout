@@ -221,7 +221,7 @@ transform/pos = Vector2( 14, 40 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 hframes = 7
-frame = 1
+frame = 2
 
 [node name="overlay" parent="player1_powerups/curve" instance=ExtResource( 9 )]
 
@@ -231,7 +231,7 @@ transform/pos = Vector2( 14, 66 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 hframes = 7
-frame = 3
+frame = 4
 
 [node name="overlay" parent="player1_powerups/pad_speed" instance=ExtResource( 9 )]
 
@@ -241,7 +241,7 @@ transform/pos = Vector2( 14, 92 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 hframes = 7
-frame = 5
+frame = 6
 
 [node name="overlay" parent="player1_powerups/ball_speed" instance=ExtResource( 9 )]
 
@@ -271,7 +271,7 @@ transform/pos = Vector2( 14, 40 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 hframes = 7
-frame = 1
+frame = 2
 
 [node name="overlay" parent="player2_powerups/curve" instance=ExtResource( 9 )]
 
@@ -281,7 +281,7 @@ transform/pos = Vector2( 14, 66 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 hframes = 7
-frame = 3
+frame = 4
 
 [node name="overlay" parent="player2_powerups/pad_speed" instance=ExtResource( 9 )]
 
@@ -291,7 +291,7 @@ transform/pos = Vector2( 14, 92 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 hframes = 7
-frame = 5
+frame = 6
 
 [node name="overlay" parent="player2_powerups/ball_speed" instance=ExtResource( 9 )]
 
